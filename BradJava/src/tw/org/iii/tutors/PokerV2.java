@@ -3,12 +3,12 @@ package tw.org.iii.tutors;
 public class PokerV2 {
 	public static void main(String[] args) {
 		long start = System.currentTimeMillis();
-		int[] poker = new int[10];
+		int[] poker = new int[52];
 		int rand;
 		boolean isRepeat;
 		for (int i=0; i<poker.length; i++) {
 			do {
-				rand = (int)(Math.random()*10);
+				rand = (int)(Math.random()*52);
 				
 				// 檢查機制
 				isRepeat = false;
