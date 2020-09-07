@@ -3,6 +3,23 @@ package tw.org.iii.myclasses;
 public class TWId {
 	private String id;
 	
+	public TWId() {
+		
+	}
+	public TWId(boolean isMale) {
+		
+	}
+	public TWId(int area) {
+		
+	}
+	public TWId(boolean isMale, int area) {
+		
+	}
+	
+//	public TWId(String id) {
+//		this.id = id;
+//	}
+	
 	public static boolean isRightId(String id) {
 		boolean ret = false;
 		String letters = "ABCDEFGHJKLMNPQRSTUVXYWZIO";
