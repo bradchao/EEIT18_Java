@@ -2,7 +2,7 @@ package tw.org.iii.tutors;
 
 public class PokerV3 {
 	public static void main(String[] args) {
-		long start = System.currentTimeMillis();
+		//long start = System.currentTimeMillis();
 		int[] poker = new int[52];
 		for (int i=0; i<poker.length; i++) poker[i] = i;
 		
@@ -13,11 +13,27 @@ public class PokerV3 {
 			poker[rand] = poker[i];
 			poker[i] = temp;
 		}
+		
 		// for-each
 		for (int card: poker) {
 			System.out.println(card);
 		}
 		System.out.println("-------");
-		System.out.println(System.currentTimeMillis() - start);
+		//System.out.println(System.currentTimeMillis() - start);
+		
+		int[][] players = new int[4][13];
+		for (int i=0; i<poker.length; i++) {
+			players[i%4][i/4] = poker[i];
+		}
+
+		for (int card: players[1]) {
+			System.out.println(card);
+		}
+		
+		
+		
+		
+		
+		
 	}
 }
