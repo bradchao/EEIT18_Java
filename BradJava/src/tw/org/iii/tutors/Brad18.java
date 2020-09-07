@@ -6,7 +6,7 @@ public class Brad18 {
 
 	public static void main(String[] args) {
 		Bike myBike = new Bike();
-		Bike urBike = new Bike();
+		Bike urBike = new Bike("Blue");
 		myBike.upSpeed();myBike.upSpeed();myBike.upSpeed();
 		myBike.downSpeed();
 		
@@ -23,6 +23,10 @@ public class Brad18 {
 //		}
 		
 		System.out.println(myBike.getSpeed());
+		System.out.println(myBike.getColor());
+		myBike.changeColor(null);
+		System.out.println(myBike.getColor());
+		
 		
 	}
 
