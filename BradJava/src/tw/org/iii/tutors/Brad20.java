@@ -11,12 +11,15 @@ public class Brad20 {
 		System.out.println(s1);
 		System.out.println(s2);
 		System.out.println(s3);
-		
-		if (TWId.isRightId("A123456789")) {
-			System.out.println("OK");
-		}else {
-			System.out.println("XX");
-		}
+
+		TWId id1 = new TWId();
+		TWId id2 = new TWId(true);
+		TWId id3 = new TWId(7);
+		TWId id4 = new TWId(false, 4);
+		System.out.println(id1.getId());
+		System.out.println(id2.getId());
+		System.out.println(id3.getId());
+		System.out.println(id4.getId());
 	}
 
 }
