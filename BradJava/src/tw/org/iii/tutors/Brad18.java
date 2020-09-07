@@ -12,8 +12,17 @@ public class Brad18 {
 		
 		urBike.upSpeed();urBike.upSpeed();urBike.downSpeed();
 		
-		System.out.println(myBike.speed);
-		System.out.println(urBike.speed);
+		System.out.println(myBike.getSpeed());
+		System.out.println(urBike.getSpeed());
+
+		while (myBike.getSpeed()<10) {
+			myBike.upSpeed();
+		}
+//		for (;myBike.getSpeed()<10;) {
+//			myBike.upSpeed();
+//		}
+		
+		System.out.println(myBike.getSpeed());
 		
 	}
 
