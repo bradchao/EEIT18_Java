@@ -12,7 +12,7 @@ public class Brad20 {
 		System.out.println(s2);
 		System.out.println(s3);
 		
-		if (TWId.isRightId("Y123456789")) {
+		if (TWId.isRightId("A123456789")) {
 			System.out.println("OK");
 		}else {
 			System.out.println("XX");
