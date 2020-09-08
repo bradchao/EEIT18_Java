@@ -1,11 +1,12 @@
 package tw.org.iii.myclasses;
 
-public class Bike {
+public class Bike extends Object{
 	// 屬性, 方法
-	private double speed;
+	protected double speed;
 	private String color;
 	
 	public Bike() {
+		// super();
 		color = "Yellow";
 	}
 	public Bike(String color) {
