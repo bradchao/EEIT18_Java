@@ -67,4 +67,15 @@ public class TWId {
 		}
 		return ret;
 	}
+	
+	@Override
+	public String toString() {
+		return id;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		return this.getId().equals(((TWId)obj).getId());
+	}
+	
 }
