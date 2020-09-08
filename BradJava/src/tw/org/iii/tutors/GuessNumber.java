@@ -2,11 +2,13 @@ package tw.org.iii.tutors;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -16,6 +18,7 @@ public class GuessNumber extends JFrame implements ActionListener{
 	private JTextField input;
 	private JTextArea log;
 	private String answer;
+	private int d = 3;
 	
 	public GuessNumber() {
 		super("GuessNumber Game");
@@ -33,26 +36,58 @@ public class GuessNumber extends JFrame implements ActionListener{
 		add(topLine, BorderLayout.NORTH);
 		
 		guess.addActionListener(this);
+		log.setFont(new Font(null, Font.PLAIN, 48));
 		
 		
 		setSize(640, 480);
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
-		answer = createAnswer(3);
+		initGame();
+	}
+	
+	private void initGame() {
+		answer = createAnswer(d);
+		counter = 0 ;
+		input.setText("");
+		log.setText("");
 	}
 	
 	public static void main(String[] args) {
 		new GuessNumber();
 	}
 
+	private int counter;
+	
 	public void actionPerformed(ActionEvent e) {
+		counter++;
 		String str = input.getText();
-		log.append(str +"\n");
+		String result = checkAB(str);
+		log.append(counter + ". " + str + " => " + result + "\n");
 		input.setText("");
-		System.out.println(createAnswer(5));
+		
+		if (result.equals(d + "A0B")) {
+			JOptionPane.showMessageDialog(this, "恭喜老爺");
+			initGame();
+		}else if(counter == 3) {
+			JOptionPane.showMessageDialog(this, "Loser:" + answer);
+			initGame();
+		}
+		
 	}
 
+	private String checkAB(String g) {
+		int A, B; A = B = 0;
+		for (int i=0; i<answer.length(); i++) {
+			if (answer.charAt(i) == g.charAt(i)) {
+				A++;
+			}else if(answer.indexOf(g.charAt(i)) != -1) {
+				B++;
+			}
+		}
+		return String.format("%dA%dB", A,B);
+	}
+	
 	private String createAnswer(int d) {
 		int[] poker = new int[10];
 		for (int i=0; i<poker.length; i++) poker[i] = i;
