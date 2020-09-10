@@ -36,6 +36,8 @@ public class GuessNumber extends JFrame implements ActionListener{
 		add(topLine, BorderLayout.NORTH);
 		
 		guess.addActionListener(this);
+		MyListener myListener = new MyListener(this);
+		guess.addActionListener(myListener);
 		log.setFont(new Font(null, Font.PLAIN, 48));
 		
 		
@@ -60,6 +62,7 @@ public class GuessNumber extends JFrame implements ActionListener{
 	private int counter;
 	
 	public void actionPerformed(ActionEvent e) {
+		System.out.println("here");
 		counter++;
 		String str = input.getText();
 		String result = checkAB(str);
@@ -108,3 +111,17 @@ public class GuessNumber extends JFrame implements ActionListener{
 	}
 	
 }
+
+class MyListener implements ActionListener {
+	private GuessNumber guessNumber;
+	public MyListener(GuessNumber guessNumber) {
+		this.guessNumber = guessNumber;
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		System.out.println("OK");
+		
+	}
+	
+}
+
